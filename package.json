@@ -1,0 +1,16 @@
+{
+  "name": "advent2021",
+  "version": "1.0.0",
+  "description": "completeing advent of code in node!",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "author": "Ata Ahmad",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "fs": "^0.0.1-security"
+  }
+}
