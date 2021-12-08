@@ -3,32 +3,18 @@ import fs from 'fs';
 const data = fs.readFileSync("../inputs/day3.txt").toString().split(/\n/);
 const testData = fs.readFileSync("../inputs/day3Test.txt").toString().split(/\n/);
 
-
-const array = new Array(5).fill(0);
-
-const convertArrToBin = arr => {
+// Helper function. Input is an array of 0's and 1's, and a string discerning between gamma or epsilon.
+// Output is a binary number determined out of forward or reverse order of the 0's and 1's depending on the string. 
+const convertToBin = (arr, arg) => {
     let res = 0;
     for (let i = 0; i < arr.length; i++) {
-        if (arr[i] == 1) {
-            res += 2 ** (arr.length - i);
+        if (arr[i] == 1 && arg == "gamma" || arr[i] == 0 && arg == "epsilon") {
+            res += 2 ** (arr.length - 1 - i);
         }
     }
     return res;
 }
 
-const convertRestoBin = (arr, arg) => {
-    for (let i = 0; i < arr.length; i++) {
-        switch (arg) {
-            case "gamma":
-                if (arr[i] > 1) arr[i] = 1;
-                else arr[i] = 0;
-            case "epsilon":
-                if (arr[i] > 1) arr[i] = 0;
-                else arr[i] = 1;
-        }
-    }
-    return arr;
-}
 
 const findPower = data => {
     const bitLength = data[0].length;
@@ -45,7 +31,12 @@ const findPower = data => {
         }
     }
 
-    console.log(convertRestoBin(res, "gamma"));
+    for (let k = 0; k < bitLength; k++) {
+        if (res[k] > 0) res[k] = 1;
+        else res[k] = 0;
+    }
+    
+    return convertToBin(res, "gamma") * convertToBin(res, "epsilon");
 }
 
-console.log(findPower(testData));
+console.log("The answer to part 1 is: " + findPower(data));
