@@ -19,7 +19,7 @@ const convertToBin = (arr, arg) => {
 const findPower = data => {
     const bitLength = data[0].length;
     const res = new Array(bitLength).fill(0);
-    console.log(data);
+    // console.log(data);
     for (let i = 0; i < data.length; i++) {
         let currBinary = data[i];
         for (let j = 0; j < bitLength; j++) {
@@ -39,4 +39,22 @@ const findPower = data => {
     return convertToBin(res, "gamma") * convertToBin(res, "epsilon");
 }
 
+
+
+//Coding for part 2 right now.
+
+const findRating = data => {
+    const bitLength = data[0].length;
+    const res = new Array(bitLength).fill(0);
+    // console.log(data);
+    for (let i = 0; i < bitLength; i++) {
+        let count = 0;
+        for (let j = 0; j < data.length; j++) {
+            
+        }
+    }
+}
+
+
+partTwo(data);
 console.log("The answer to part 1 is: " + findPower(data));
