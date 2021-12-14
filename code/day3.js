@@ -19,7 +19,6 @@ const convertToBin = (arr, arg) => {
 const findPower = data => {
     const bitLength = data[0].length;
     const res = new Array(bitLength).fill(0);
-    // console.log(data);
     for (let i = 0; i < data.length; i++) {
         let currBinary = data[i];
         for (let j = 0; j < bitLength; j++) {
