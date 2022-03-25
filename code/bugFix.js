@@ -1,6 +1,6 @@
 /// Here is a bug Fix.
 
-DFS(node) {
+DFS = function(node) {
     // Create a Stack and add our initial node in it
     let s = new Stack(this.nodes.length);
     let explored = new Set();
